@@ -11,4 +11,5 @@ dmap = double(imread(['images\Samples\' name '_DMap.png']));
 smap = double(imread(['images\Samples\' name '_SMap.png']));
 %%%%%%%%
 J = cair(I, dmap, smap, 0, 0.5);
-figure, imshow(uint8(J), []);
+imwrite(uint8(J), ['Output\' name '_' num2str(100 * percentage) '_percent.png']);
+imshow(uint8(J), []);
