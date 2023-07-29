@@ -23,7 +23,6 @@
   <ol>
     <li><a href="#about-the-project"> ➤ About The Project</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
-    <li><a href="#getting-started"> ➤ Getting Started</a></li>
     <li><a href="#my-method"> ➤ My Method</a></li>
     <li><a href="#results"> ➤ Results</a></li>
     <li><a href="#references"> ➤ References</a></li>
