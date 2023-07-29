@@ -22,10 +22,10 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project"> ➤ About The Project</a></li>
-    <li><a href="#overview"> ➤ Overview</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
     <li><a href="#getting-started"> ➤ Getting Started</a></li>
-    <li><a href="#scenario1"> ➤ Scenario 1: Depth First Search </a></li>
+    <li><a href="#my-method"> ➤ My Method</a></li>
+    <li><a href="#results"> ➤ Results</a></li>
     <li><a href="#references"> ➤ References</a></li>
     <li><a href="#credits"> ➤ Credits</a></li>
   </ol>
@@ -38,15 +38,8 @@
 
 <p align="justify">
   Display devices come with varying resolutions and aspect ratios, necessitating the resizing of images to fit these different screens properly. Also, it is important to protect the critical content of the images and prevent distortions as much as possible in resized images. Content-Aware Image Retargeting (CAIR) techniques provide a promising solution to this ongoing challenge. The process of CAIR involves altering the resolution and aspect ratio of images to address these essential aspects as effectively as possible. This adaptation is achieved by adhering to geometric constraints and adopting a content-aware approach.
-</p>
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-<!-- OVERVIEW -->
-<h2 id="overview"> ☁️ Overview</h2>
-
-<p align="justify"> 
-  "Imageful" is a content-aware image retargeting project developed for the Foundations of Computer Vision course. It intelligently resizes images while preserving their essential content and visual appeal. With its innovative approach, Imageful ensures that crucial elements in the image remain undistorted during resizing, making it a valuable tool for various multimedia applications.
+  
+  "Imageful" is a content-aware image retargeting project implemented as final project for the Foundations of Computer Vision course. It intelligently resizes images while preserving their essential content and visual appeal. With its innovative approach, Imageful ensures that crucial elements in the most of the images remain undistorted during resizing, making it a valuable tool for various multimedia applications.
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -55,32 +48,19 @@
 <h2 id="project-files-description"> 💾 Project Files Description</h2>
 
 <ul>
-  <li><b>search.py</b> - Where all of the search algorithms reside.</li>
-  <li><b>searchAgents.py</b> - Where all of the search-based agents reside.</li>
-  <li><b>pacman.py</b> - The main file that runs Pacman games. This file also describes a Pacman GameState types.</li>
-  <li><b>game.py</b> - The logic behind how the Pacman world works.</li>
-  <li><b>util.py</b> - Useful data structures for implementing search algorithms.</li>
+  <li><b>cair.m</b> - Where all of the functions reside.</li>
+  <li><b>main.m</b> - The main file that runs the algorithm.</li>
 </ul>
 
-<h3>Some other supporting files</h3>
+<!-- <h3>Some other supporting files</h3>
 <ul>
   <li><b>graphicsDisplay.py</b> - Graphics for Pacman.</li>
-  <li><b>graphicsUtils.py</b> - Support for Pacman graphics.</li>
-  <li><b>textDisplay.py</b> - ASCII graphics for Pacman.</li>
-  <li><b>ghostAgents.py</b> - Agents to control ghosts.</li>
-  <li><b>keyboardAgents.py</b> - Keyboard interfaces to control Pacman.</li>
-  <li><b>layout.py</b> - Code for reading layout files and storing their contents.</li>
-  <li><b>autograder.py</b> - Project autograder.</li>
-  <li><b>testParser.py</b> - Parses autograder test and solution files.</li>
-  <li><b>testClasses.py</b> - General autograding test classes.</li>
-  <li><b>test_cases/</b> - Directory containing the test cases for each scenario.</li>
-  <li><b>searchTestClasses.py</b> - Project specific autograding test classes.</li>
-</ul>
+</ul> -->
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- GETTING STARTED -->
-<h2 id="getting-started"> 📖 Getting Started</h2>
+<!-- <h2 id="getting-started"> 📖 Getting Started</h2>
 
 <p>You are able to start the game by typing the following commands in the command line:</p>
 <pre><code>$ python pacman.py</code></pre>
@@ -89,49 +69,79 @@
 <pre><code>$ python pacman.py -h</code></pre>
 <i>Note that all of the commands that appear in this project also appear in <code>commands.txt</code>, for easy copying and pasting.</i>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png) -->
+
+<!-- MY METHOD -->
+<h2 id="my-method"> 💡 My Method</h2>
+
+<p align="justify"> 
+  As the classic seam carving algorithm was vulnerable to some properties of the images, such as the noisiness of the background and the existence of geometric structures, I modified the classic seam carving algorithm to make it convenient for a bigger group of images.
+
+  Generally speaking, my method consists of two main parts: first, modification of the seam carving algorithm, and second, providing a new importance map, both of which enhance the overall visual result.
+
+ 1st:
+ While removing the seam having the least importance value in the importance map, it is sensible in the next iteration not to remove the seam containing adjacent pixels to the pixels of the removed seam in order to avoid distortions caused by the removal of adjacent seams. To handle this situation, I encountered that it would be beneficial to add a constant factor of the importance value of removed pixels to its adjacent ones. This trick works because in every iteration (respectively seam removal step), the seam with the minimum importance is chosen to be removed. So when we increase the importance of the pixels adjacent to the removed seam, it becomes more probable for the next seam not to consist of pixels adjacent to the previously removed seam. Therefore, in each iteration, I add 0.491/2 times x to each adjacent pixel's importance value on the right and left and 0.009/2 to each second-order adjacent importance value on the right and left.
+
+ 2nd:
+ The importance map used in this method is calculated through a linear combination of the normalized depth map, saliency map, gradient magnitude, and the maximum of values obtained by applying two 3 by 3 diagonal Sobel operators regarding edges of 45 or 135 degrees. The importance map is obtained as follows:
+ $$map_{importance} = 3 nrml(map_{depth}) + nrml(map_{saliency\:map}) + nrml(map_{gradient\:magnitude}) + 3 nrml(max(map_{45\:degree\:Sobel}, map_{135\:degree\:Sobel}))$$
+</p>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<!-- SCENARIO1 -->
-<h2 id="scenario1"> 🔸 Scenario 1: Finding a Fixed Food Dot using Depth First Search</h2>
 
-<p>I have implemented the depth-first search (DFS) algorithm in the depthFirstSearch function in <code>search.py</code>.</p>
+<!-- Results -->
+<h2 id="results"> 🎉 Results</h2>
+
+<p align="justify"> 
+  I applied my method to the following images, and here are the outputs.
+</p>
+
+<div style="display: flex; justify-content: center;">
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="gif/Baby.png" alt="Image of baby" height="200px" width="200px">
+    <img src="gif/Diana.png" alt="Image of Diana" height="200px" width="200px">
+    <img src="gif/Dolls.png" alt="Image of dolls" height="200px" width="200px">
+    <img src="gif/Snowman.png" alt="Image of snowman" height="200px" width="200px">
+  </div>
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="gif/Baby_50_percent.png" alt="Image of baby" height="200px" width="100px">
+    <img src="gif/Diana_50_percent.png" alt="Image of Diana" height="200px" width="100px">
+    <img src="gif/Dolls_50_percent.png" alt="Image of dolls" height="200px" width="100px">
+    <img src="gif/Snowman_50_percent.png" alt="Image of snowman" height="200px" width="100px">
+  </div>
+</div>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- <p>I have implemented the depth-first search (DFS) algorithm in the depthFirstSearch function in <code>search.py</code>.</p>
 <p>The Pacman will quickly find a solution via running the following commands:</p>
 
 <pre><code>$ python pacman.py -l tinyMaze -p SearchAgent</code></pre>
 <pre><code>$ python pacman.py -l mediumMaze -p SearchAgent</code></pre>
-<pre><code>$ python pacman.py -l bigMaze -z .5 -p SearchAgent</code></pre>
+<pre><code>$ python pacman.py -l bigMaze -z .5 -p SearchAgent</code></pre> -->
 
-<p align="center"> 
+<!-- <p align="center"> 
 <img src="gif/DFS.gif" alt="Animated gif DFS Algorithm" height="282px" width="637px">
-<!--height="382px" width="737px"-->
-</p>
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+height="382px" width="737px"
+</p> -->
 
 
 <!-- REFERENCES -->
-<h2 id="References"> 🔸 Scenario 8: Suboptimal Search</h2>
+<h2 id="References"> 🌏 References</h2>
 
-<p>In this scenario, I have implemented a function that helps Pacman agent to find a path to the closest dot.</p>
-<p>This function has been written in <code>searchAgents.py</code></p>
-<p>The Pacman will quickly find a solution via running the following command:</p>
-
-<pre><code>$ python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5</code></pre>
-
-<p align="center"> 
-<img src="gif/Suboptimal Search.gif" alt="Animated gif Suboptimal Search" height="282px" width="637">
-</p>
+[1] Asheghi, Bahareh, et al. "A comprehensive review on content-aware image retargeting: From classical to state-of-the-art methods." Signal Processing 195 (2022): 108496.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- CREDITS -->
 <h2 id="Credits"> 📜 Credits</h2>
 
-Mohammad Amin Shamshiri
+Alireza Abrehforoush
 
-[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ma-shamshiri)
-[![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/ma_shamshiri)
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ma-shamshiri)
+[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Alireza-Abrehforoush)
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alireza-abrehforoush-b6815b19b/)
 
-Acknowledgements: Based on UC Berkeley's Pacman AI project, <a href="http://ai.berkeley.edu">http://ai.berkeley.edu</a>
+<!-- Acknowledgements: Based on UC Berkeley's Pacman AI project, <a href="http://ai.berkeley.edu">http://ai.berkeley.edu</a> -->
 
