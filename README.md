@@ -93,7 +93,7 @@
 <h2 id="results"> 🎉 Results</h2>
 
 <p align="justify"> 
-  I applied my method to the following images, and here are the outputs.
+  After applying my method to the provided images, here are the corresponding outputs that demonstrate a 50% reduction in width.
 </p>
 
 <div style="display: flex; justify-content: center;">
