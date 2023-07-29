@@ -97,20 +97,26 @@
 </p>
 
 <div style="display: flex; justify-content: center;">
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <img src="gif/Baby.png" alt="Image of baby" height="200px" width="200px">
-    <img src="gif/Diana.png" alt="Image of Diana" height="200px" width="200px">
-    <img src="gif/Dolls.png" alt="Image of dolls" height="200px" width="200px">
-    <img src="gif/Snowman.png" alt="Image of snowman" height="200px" width="200px">
-  </div>
+  <img src="gif/Baby.png" alt="Image of baby" height="200" width="200">
   <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <img src="gif/Baby_50_percent.png" alt="Image of baby" height="200px" width="100px">
-    <img src="gif/Diana_50_percent.png" alt="Image of Diana" height="200px" width="100px">
-    <img src="gif/Dolls_50_percent.png" alt="Image of dolls" height="200px" width="100px">
-    <img src="gif/Snowman_50_percent.png" alt="Image of snowman" height="200px" width="100px">
-  </div>
+  <img src="gif/Baby_50_percent.png" alt="Image of baby" height="200" width="100px">
 </div>
+<div style="display: flex; justify-content: center;">
+  <img src="gif/Diana.png" alt="Image of Diana" height="200" width="200">
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <img src="gif/Diana_50_percent.png" alt="Image of Diana" height="200" width="100px">
+</div>
+<div style="display: flex; justify-content: center;">
+  <img src="gif/Dolls.png" alt="Image of dolls" height="200" width="200">
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <img src="gif/Dolls_50_percent.png" alt="Image of dolls" height="200" width="100px">
+</div>
+<div style="display: flex; justify-content: center;">
+  <img src="gif/Snowman.png" alt="Image of snowman" height="200" width="200">
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <img src="gif/Snowman_50_percent.png" alt="Image of snowman" height="200px" width="100px">
+</div>
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
