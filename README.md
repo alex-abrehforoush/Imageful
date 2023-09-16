@@ -98,22 +98,22 @@
 
 <div style="display: flex; justify-content: center;">
   <img src="gif/Baby.png" alt="Image of baby" height="200" width="200">
-  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;">--------------></span>
   <img src="gif/Baby_50_percent.png" alt="Image of baby" height="200" width="100px">
 </div>
 <div style="display: flex; justify-content: center;">
   <img src="gif/Diana.png" alt="Image of Diana" height="200" width="200">
-  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;">--------------></span>
   <img src="gif/Diana_50_percent.png" alt="Image of Diana" height="200" width="100px">
 </div>
 <div style="display: flex; justify-content: center;">
   <img src="gif/Dolls.png" alt="Image of dolls" height="200" width="200">
-  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;">--------------></span>
   <img src="gif/Dolls_50_percent.png" alt="Image of dolls" height="200" width="100px">
 </div>
 <div style="display: flex; justify-content: center;">
   <img src="gif/Snowman.png" alt="Image of snowman" height="200" width="200">
-  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;"> </span>
+  <span style="margin: 0 10px; display: flex; justify-content: center; align-items: center;">--------------></span>
   <img src="gif/Snowman_50_percent.png" alt="Image of snowman" height="200px" width="100px">
 </div>
 
@@ -134,14 +134,14 @@ height="382px" width="737px"
 
 
 <!-- REFERENCES -->
-<h2 id="References"> 🌏 References</h2>
+<h2 id="references"> 🌏 References</h2>
 
 [1] Asheghi, Bahareh, et al. "A comprehensive review on content-aware image retargeting: From classical to state-of-the-art methods." Signal Processing 195 (2022): 108496.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- CREDITS -->
-<h2 id="Credits"> 📜 Credits</h2>
+<h2 id="credits"> 📜 Credits</h2>
 
 Alireza Abrehforoush
 
